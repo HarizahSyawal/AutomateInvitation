@@ -810,7 +810,7 @@ legend {
   box-sizing: border-box;
 }
 
-.s006 {
+.s004 {
   min-height: 100vh;
   display: -ms-flexbox;
   display: flex;
@@ -819,78 +819,128 @@ legend {
   -ms-flex-align: center;
       align-items: center;
   font-family: 'Poppins', sans-serif;
-  background: url("/automate-invitation-letter/public/images/bg.png");
+  background: url("../images/bg.png");
   background-size: cover;
   background-position: center center;
   padding: 15px;
 }
 
-.s006 form {
+.s004 form {
   width: 100%;
   max-width: 790px;
 }
 
-.s006 form legend {
-  font-size: 26px;
+.s004 form legend {
+  font-size: 23px;
   color: #fff;
   font-weight: 800;
   text-align: center;
-  margin-bottom: 59px;
+  margin-bottom: 90px;
 }
 
-.s006 form .inner-form {
+.logo-container{
+  position: absolute;
+  top: 0;
+  left: 46%;
+  transform: translateX(-30%);
+  transform: translateY(50%);
+} 
+
+.logo-container img{
+  max-width: 100%;
+  height: auto;
+} 
+
+.s004 form .inner-form {
   width: 100%;
   margin-bottom: 17px;
 }
 
-.s006 form .inner-form .input-field {
-  height: 70px;
+.s004 form .inner-form .input-field {
   width: 100%;
   position: relative;
 }
 
-.s006 form .inner-form .input-field input {
-  height: 100%;
+.s004 form .inner-form .input-field .choices {
+  margin-bottom: 0;
+}
+
+.s004 form .inner-form .input-field .choices .choices__inner {
+  min-height: 70px;
   width: 100%;
   background: transparent;
   border: 0;
   background: #fff;
   display: block;
   width: 100%;
-  padding: 10px 32px 10px 70px;
+  padding: 10px 70px 10px 32px;
   font-size: 18px;
   color: #666;
   border-radius: 34px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-align: center;
+      align-items: center;
 }
 
-.s006 form .inner-form .input-field input.placeholder {
-  color: #ccc;
-  font-size: 18px;
+.s004 form .inner-form .input-field .choices .choices__inner .choices__list .choices__item {
+  background: #e7e7e7;
+  color: #333;
+  line-height: 33px;
+  border: 0;
+  padding: 0 20px;
+  font-size: 16px;
 }
 
-.s006 form .inner-form .input-field input:-moz-placeholder {
-  color: #ccc;
-  font-size: 18px;
+.s004 form .inner-form .input-field .choices .choices__inner .choices__list .choices__item .choices__button {
+  border-left: 0;
+  color: #b2b2b2;
+  background-image: url(../images/icons/close.svg);
+  background-size: 14px auto;
+  padding-left: 0;
+  opacity: .3;
+  transition: all .2s ease-out, color .2s ease-out;
 }
 
-.s006 form .inner-form .input-field input::-webkit-input-placeholder {
-  color: #ccc;
-  font-size: 18px;
+.s004 form .inner-form .input-field .choices .choices__inner .choices__list .choices__item .choices__button:hover {
+  opacity: 1;
 }
 
-.s006 form .inner-form .input-field input:hover, .s006 form .inner-form .input-field input:focus {
-  box-shadow: none;
-  outline: 0;
+.s004 form .inner-form .input-field .choices .choices__inner .choices__input {
+  font-size: 16px;
+  color: #333;
+  background-color: transparent;
+  margin-bottom: 0;
 }
 
-.s006 form .inner-form .input-field .btn-search {
+.s004 form .inner-form .input-field .choices .choices__list--dropdown {
+  background: transparent;
+  font-size: 16px;
+  color: #fff;
+  border: 0;
+  padding: 0 32px;
+}
+
+.s004 form .inner-form .input-field .choices .choices__list--dropdown .choices__item {
+  font-size: 13px;
+  height: 25px;
+  line-height: 1.3;
+  padding: 0;
+  padding-top: 5px;
+  opacity: .7;
+}
+
+.s004 form .inner-form .input-field .btn-search {
   width: 70px;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
       align-items: center;
   position: absolute;
-  left: 0;
+  right: 0;
+  top: 0;
   height: 100%;
   background: transparent;
   border: 0;
@@ -902,31 +952,30 @@ legend {
   align-items: center;
 }
 
-.s006 form .inner-form .input-field .btn-search svg {
-  fill: #ccc;
-  width: 30px;
-  height: 30px;
+.s004 form .inner-form .input-field .btn-search svg {
+  fill: #333;
+  width: 40px;
+  height: 40px;
   transition: all .2s ease-out, color .2s ease-out;
 }
 
-.s006 form .inner-form .input-field .btn-search:hover, .s006 form .inner-form .input-field .btn-search:focus {
+.s004 form .inner-form .input-field .btn-search:hover, .s004 form .inner-form .input-field .btn-search:focus {
   outline: 0;
   box-shadow: none;
 }
 
-.s006 form .inner-form .input-field .btn-search:hover svg, .s006 form .inner-form .input-field .btn-search:focus svg {
-  fill: #666;
+.s004 form .inner-form .input-field .btn-search:hover svg, .s004 form .inner-form .input-field .btn-search:focus svg {
+  fill: #000;
 }
 
-.s006 form .suggestion-wrap {
+.s004 form .suggestion-wrap {
   padding: 0 15px;
 }
 
-.s006 form .suggestion-wrap span {
+.s004 form .suggestion-wrap span {
   font-size: 14px;
   font-family: 'Helvetica', sans-serif;
   display: inline-block;
-  background: rgba(0, 0, 0, 0.6);
   padding: 0 15px;
   line-height: 32px;
   color: #fff;
@@ -934,19 +983,3 @@ legend {
   margin-right: 10px;
   margin-bottom: 10px;
 }
-
-@media screen and (max-width: 767px) {
-  .s006 form .inner-form .input-field {
-    margin-bottom: 20px;
-    height: 50px;
-  }
-  .s006 form .inner-form .input-field input {
-    padding-left: 55px;
-    font-size: 16px;
-  }
-  .s006 form .inner-form .input-field .btn-search svg {
-    width: 26px;
-    height: 26px;
-  }
-}
-

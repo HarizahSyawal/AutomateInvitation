@@ -8,11 +8,22 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+
+        $users = User::where('no_passport', 'LIKE', "%$search%")
+                     ->orWhere('nik', 'LIKE', "%$search%")
+                     ->get();            
+
+        return view('welcome', ['user' => $users]);
+    }
+
     public function generatePdf(Request $request)
     {
         // Search for a user by NIK number or passport number
-        $user = User::where('nik_no', $request->input('nik_no'))
-                    ->orWhere('passport_no', $request->input('passport_no'))
+        $user = User::where('nik', $request->input('nik'))
+                    ->orWhere('no_passport', $request->input('no_passport'))
                     ->first();
 
         if (!$user) {
