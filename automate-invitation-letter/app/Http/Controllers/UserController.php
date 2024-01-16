@@ -16,7 +16,7 @@ class UserController extends Controller
                      ->orWhere('nik', 'LIKE', "%$search%")
                      ->get();            
 
-        return view('welcome', ['user' => $users]);
+        return view('index', ['users' => $users]);
     }
 
     public function generatePdf(Request $request)
