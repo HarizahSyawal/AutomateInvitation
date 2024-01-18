@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PdfController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,11 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
-Route::post('/generate-pdf', [UserController::class, 'generatePdf'])->name('generate.pdf');
-Route::get('/search', [UserController::class, 'search']);
+// Route::post('/generate-pdf', [UserController::class, 'generatePdf'])->name('generate.pdf');
+// Route::get('/search', [UserController::class, 'search']);
+Route::get('/', [PdfController::class, 'showForm']);
+Route::post('/update-pdf', [PdfController::class, 'updatePdf']);
