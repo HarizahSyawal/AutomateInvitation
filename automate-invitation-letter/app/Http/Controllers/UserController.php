@@ -1,40 +1,33 @@
 <?php
-
+// app/Http/Controllers/UserController.php
 namespace App\Http\Controllers;
-
-use App\Models\User;
-use Barryvdh\DomPDF\Facade as PDF;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Http\Controllers\PDFController;
 
 class UserController extends Controller
 {
-    public function search(Request $request)
+    public function searchUser(Request $request)
     {
-        $search = $request->input('search');
+        $request->validate([
+            'query' => 'required',
+        ]);
 
-        $users = User::where('no_passport', 'LIKE', "%$search%")
-                     ->orWhere('nik', 'LIKE', "%$search%")
-                     ->get();            
+        $query = $request->input('query');
 
-        return view('index', ['users' => $users]);
-    }
-
-    public function generatePdf(Request $request)
-    {
-        // Search for a user by NIK number or passport number
-        $user = User::where('nik', $request->input('nik'))
-                    ->orWhere('no_passport', $request->input('no_passport'))
+        // Search for a user with either NIK or Passport Number
+        $user = User::where('nik', $query)
+                    ->orWhere('nomor_paspor', $query)
                     ->first();
 
-        if (!$user) {
-            return redirect()->back()->with('error', 'User not found.');
+        if ($user) {
+            // Call the fillPDFFile method from PDFController
+            $pdfController = new PDFController();
+            return $pdfController->fillPDFFile(public_path("invitation.pdf"), public_path("invitation.pdf"), $user);
+        } else {
+            return redirect()->back()->with('error', 'User not found');
         }
-
-        // Load the view with data
-        $pdf = PDF::loadView('pdf.template', compact('user'));
-
-        // Download the PDF or display it in the browser
-        return $pdf->download('user_information.pdf');
     }
 }
 
